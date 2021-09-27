@@ -4,9 +4,9 @@ import * as S from './style';
 
 const Home = () => {
     return (
-        <div>
+        <S.Home>
             Home
-        </div>
+        </S.Home>
     )
 }
 

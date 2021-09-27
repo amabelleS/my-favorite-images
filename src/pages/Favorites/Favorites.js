@@ -4,9 +4,10 @@ import * as S from './style';
 
 const Favorites = () => {
     return (
-        <div>
+        <S.Favorites>
             Favorites
-        </div>
+            <p>jkdjlsdjfl</p>
+        </S.Favorites>
     )
 }
 
