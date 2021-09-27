@@ -116,3 +116,15 @@ export const InputWrapper = styled.div`
       focused ? 'translateY(-50px) translateX(-5%);' : 'translateY(-50%);'};
   }
 `;
+
+export const ImagesContainer = styled.section`
+  padding: 5rem 0;
+`;
+
+export const List = styled.div`
+  width: 90vw;
+  /* max-width: var(--max-width); */
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+`;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useImagesFetch } from '../../hooks/useImagesFetch';
+import Image from '../../components/Image';
 
 import { FaSearch } from 'react-icons/fa';
 
@@ -22,6 +23,13 @@ const Search = () => {
   const blurHandler = () => {
     SetFocused(false);
   };
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    console.log(
+      '🚀 ~ file: search.js ~ line 28 ~ handelSubmit ~ searchTerm',
+      searchTerm
+    );
+  };
 
   return (
     <S.SearchPage>
@@ -35,13 +43,18 @@ const Search = () => {
             type="text"
             value={searchTerm}
           />
-          <S.Button>
+          <S.Button type="submit" onClick={handelSubmit}>
             <S.SearchIcon />
           </S.Button>
         </S.InputWrapper>
-        {/* <S.ButtonOut>
-          <S.SearchIcon />
-        </S.ButtonOut> */}
+        <S.ImagesContainer>
+          <S.List>
+            {images.map((image, index) => {
+              return <Image key={image.id} {...image} />;
+            })}
+          </S.List>
+        </S.ImagesContainer>
+        {isLoading && <h2>Loading...</h2>}
       </S.Content>
     </S.SearchPage>
   );
