@@ -15,16 +15,15 @@ export const useImagesFetch = () => {
         `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&per_page=30&image_type=photo`
         //   `https://pixabay.com/api/`
       );
-      console.log(
-        '🚀 ~ file: useImagesFetch.js ~ line 16 ~ fetchImages ~ response',
-        response.data.hits
-      );
+      // console.log(
+      //   '🚀 ~ file: useImagesFetch.js ~ line 16 ~ fetchImages ~ response',
+      //   response.data.hits
+      // );
       setImages(response.data.hits);
       // setImages((prev) => {
       //   return [...prev, ...response.data.hits];
       // });
     } catch (error) {
-      setIsLoading(false);
       console.log(
         '🚀 ~ file: useImagesFetch.js ~ line 26 ~ fetchImages ~ error',
         error
