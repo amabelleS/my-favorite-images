@@ -35,8 +35,13 @@ const Search = () => {
             type="text"
             value={searchTerm}
           />
-          <S.SearchIcon />
+          <S.Button>
+            <S.SearchIcon />
+          </S.Button>
         </S.InputWrapper>
+        {/* <S.ButtonOut>
+          <S.SearchIcon />
+        </S.ButtonOut> */}
       </S.Content>
     </S.SearchPage>
   );

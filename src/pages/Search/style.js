@@ -40,9 +40,58 @@ export const Input = styled.input`
   }
 `;
 
+// DELETE!!
+export const SampleInput = styled.input.attrs((props) => ({
+  // we can define static props
+  type: 'text',
+
+  // or we can define dynamic ones
+  size: props.size || '1em',
+}))`
+  color: palevioletred;
+  font-size: 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+
+  /* here we use the dynamically computed prop */
+  margin: ${(props) => props.size};
+  padding: ${(props) => props.size};
+`;
+
+export const Button = styled.button`
+  border: none;
+  background: transparent;
+  color: ${(props) => props.theme.text};
+  padding: 0.5rem;
+
+  &:hover {
+    /* font-size: 2rem; */
+    color: tomato;
+    cursor: pointer;
+    background: rgba(63, 191, 191, 0.5);
+  }
+`;
+
+export const ButtonOut = styled.button`
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background: ${(props) => props.theme.text};
+  /* color: ${(props) => props.theme.text}; */
+
+  &:hover {
+    font-weight: bold;
+    color: ${(props) => props.theme.navActive};
+  }
+`;
+
 export const SearchIcon = styled(FaSearch)`
   color: ${(props) => props.theme.body};
-  margin-right: 0.5rem;
+  /* margin-right: 0.5rem; */
+  &:hover {
+    /* font-size: 2rem; */
+    cursor: pointer;
+  }
 `;
 
 export const InputWrapper = styled.div`
