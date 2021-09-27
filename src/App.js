@@ -10,8 +10,8 @@ import { GlobalStyle, darkTheme } from './styles/globalStyle';
 import { ThemeProvider } from 'styled-components';
 
 import { MainNavigation as Navbar } from './components/navigation';
-import { SideBar } from './components/navigation';
-import { Home, Favorites } from './pages';
+// import { SideBar } from './components/navigation';
+import { Home, Search } from './pages';
 
 import './App.css';
 
@@ -24,7 +24,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/favorites" component={Favorites} />
+          <Route exact path="/search" component={Search} />
           <Redirect to="/" />
         </Switch>
       </ThemeProvider>

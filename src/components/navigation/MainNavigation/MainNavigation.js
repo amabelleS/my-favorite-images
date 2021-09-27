@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { FaHeart, FaHome } from 'react-icons/fa';
+import { FaHeart, FaSearch } from 'react-icons/fa';
 
 import SideBar from '../SideBar/SideBar';
 
@@ -21,12 +21,12 @@ export const MainNavigation = (props) => {
         <S.Bars onClick={toggle} />
         <S.NavMenu>
           <S.NavLink exact to="/">
-            <FaHome />
-            Home
-          </S.NavLink>
-          <S.NavLink to="/favorites" activeStyle>
             <FaHeart />
             Favorites
+          </S.NavLink>
+          <S.NavLink to="/search" activeStyle>
+            <FaSearch />
+            Serach
           </S.NavLink>
         </S.NavMenu>
       </S.Nav>
