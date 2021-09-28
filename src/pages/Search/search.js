@@ -47,7 +47,7 @@ const Search = () => {
         </S.Header>
         <S.List>
           {images.map((image) => {
-            return <Image key={image.id} {...image} add image={image} />;
+            return <Image key={image.id} {...image} add={true} image={image} />;
           })}
         </S.List>
         {isLoading && <h2>Loading...</h2>}

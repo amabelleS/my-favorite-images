@@ -44,3 +44,24 @@ export const HeartIcon = styled(FaHeart)`
     cursor: pointer;
   }
 `;
+export const HeartIconNoMargin = styled(FaHeart)`
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.2s ease-in-out;
+  display: block;
+  font-size: 2rem;
+  width: 40%;
+  color: red;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.2s ease-in-out;
+  /* color: #fff; */
+`;

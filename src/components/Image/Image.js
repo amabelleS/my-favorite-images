@@ -41,33 +41,27 @@ const Image = ({ webformatURL, id, user, imageSize, add, fav, image }) => {
       onMouseEnter={() => handleMouseEnter(id)}
       onMouseLeave={handleMouseLeave}
     >
+      {fav ? (
+        <S.Info isVisible={id === hoveredImageId}>
+          <span>{user}</span>
+          <span>{imageSize}</span>
+          <S.HeartIconNoMargin
+            isVisible={id === hoveredImageId}
+            onClick={handelClickedHeart}
+          />
+        </S.Info>
+      ) : null}
       {add && isImageInFavorites(id) ? (
         <S.HeartIcon
           isVisible={id === hoveredImageId}
           onClick={handelClickedHeart}
         />
-      ) : (
+      ) : null}
+      {add && !isImageInFavorites(id) ? (
         <S.PlusIcon
           isVisible={id === hoveredImageId}
           onClick={handelClickedPlus}
         />
-      )}
-      {/* {isImageInFavorites(id) ? (
-        <S.HeartIcon
-          isVisible={isImageInFavorites(id) && id === hoveredImageId}
-          onClick={handelClickedHeart}
-        />
-      ) : add ? (
-        <S.PlusIcon
-          isVisible={id === hoveredImageId && !isImageInFavorites(id)}
-          onClick={handelClickedPlus}
-        />
-      ) : null} */}
-      {fav ? (
-        <>
-          <h4>{user}</h4>
-          <h4>{imageSize}</h4>
-        </>
       ) : null}
     </S.ContentImage>
   );

@@ -23,7 +23,7 @@ const Home = () => {
         <S.Title>My Favorite Images</S.Title>
         <S.List>
           {favorites.map((image) => {
-            return <Image key={image.id} {...image} add image={image} />;
+            return <Image key={image.id} {...image} image={image} fav />;
           })}
         </S.List>
       </S.Content>
