@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useImagesFetch } from '../../hooks/useImagesFetch';
 import Image from '../../components/Image';
+import Spinner from '../../components/UIElements/Spinner';
 
 import * as S from './style';
 
@@ -50,7 +51,7 @@ const Search = () => {
             return <Image key={image.id} {...image} add={true} image={image} />;
           })}
         </S.List>
-        {isLoading && <h2>Loading...</h2>}
+        {isLoading && <Spinner />}
       </S.Content>
     </S.SearchPage>
   );
