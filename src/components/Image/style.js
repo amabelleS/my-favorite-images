@@ -2,14 +2,14 @@ import styled from 'styled-components';
 // import { FaBars } from 'react-icons/fa';
 
 export const ImageContainer = styled.article`
-  height: 17.5rem;
-  position: relative;
-  overflow: hidden;
+  /* height: 17.5rem; */
+  /* position: relative; */
+  /* overflow: hidden; */
 `;
 export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  display: block;
+  width: 150px;
+  height: 99px;
+  /* display: block; */
   object-fit: cover;
 `;
 

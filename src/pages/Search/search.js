@@ -47,13 +47,11 @@ const Search = () => {
             <S.SearchIcon />
           </S.Button>
         </S.InputWrapper>
-        <S.ImagesContainer>
-          <S.List>
-            {images.map((image, index) => {
-              return <Image key={image.id} {...image} />;
-            })}
-          </S.List>
-        </S.ImagesContainer>
+        <S.List>
+          {images.map((image) => {
+            return <Image key={image.id} {...image} />;
+          })}
+        </S.List>
         {isLoading && <h2>Loading...</h2>}
       </S.Content>
     </S.SearchPage>
