@@ -1,33 +1,29 @@
 import styled from 'styled-components';
-// import { FaBars } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 
-export const ImageContainer = styled.article`
-  /* height: 17.5rem; */
-  /* position: relative; */
-  /* overflow: hidden; */
-`;
-export const Image = styled.img`
+export const ContentImage = styled.div`
+  background-image: url(${(props) => props.img});
   width: 150px;
   height: 99px;
-  /* display: block; */
-  object-fit: cover;
+  /* object-fit: cover; */
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  background-size: cover;
+  /* background-size: contain; */
+  background-repeat: no-repeat;
+  background-position: right;
 `;
 
-// export const Info = styled.img`
-//   position: absolute;
-//   width: 100%;
-//   padding: 1rem;
-//   bottom: 0;
-//   left: 0;
-//   background: rgba(0, 0, 0, 0.4);
-//   color: white;
-//   transform: translateY(100%);
-//   transition: var(--transition);
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-
-//   &:hover {
-//     transform: translateY(0);
-//   }
-// `;
+export const PlusIcon = styled(FaPlus)`
+  text-align: center;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.2s ease-in-out;
+  display: block;
+  font-size: 2rem;
+  margin: 2rem auto;
+  width: 40%;
+  &:hover {
+    font-size: 2.3rem;
+    cursor: pointer;
+  }
+`;

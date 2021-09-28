@@ -13,7 +13,6 @@ const Image = ({ webformatURL, likes, tags, user, imageSize, add, fav }) => {
   };
 
   return (
-    // <S.ImageContainer>
     <S.ContentImage
       img={webformatURL}
       onMouseEnter={handleMouseEnter}
@@ -27,7 +26,6 @@ const Image = ({ webformatURL, likes, tags, user, imageSize, add, fav }) => {
         </>
       ) : null}
     </S.ContentImage>
-    // </S.ImageContainer>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useImagesFetch } from '../../hooks/useImagesFetch';
 import Image from '../../components/Image';
 
@@ -7,11 +7,12 @@ import { FaSearch } from 'react-icons/fa';
 import * as S from './style';
 
 const Search = () => {
-  const { images, isLoading, error } = useImagesFetch();
+  const { images, isLoading, error, fetchImages } = useImagesFetch();
   console.log('🚀 ~ file: search.js ~ line 8 ~ Search ~ images', images);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [focused, SetFocused] = useState([]);
+  const [query, setQuery] = useState('');
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -29,6 +30,7 @@ const Search = () => {
       '🚀 ~ file: search.js ~ line 28 ~ handelSubmit ~ searchTerm',
       searchTerm
     );
+    fetchImages(searchTerm);
   };
 
   return (
@@ -49,7 +51,11 @@ const Search = () => {
         </S.InputWrapper>
         <S.List>
           {images.map((image) => {
-            return <Image key={image.id} {...image} />;
+            // console.log(
+            //   '🚀 ~ file: search.js ~ line 54 ~ {images.map ~ image',
+            //   image
+            // );
+            return <Image key={image.id} {...image} add />;
           })}
         </S.List>
         {isLoading && <h2>Loading...</h2>}
