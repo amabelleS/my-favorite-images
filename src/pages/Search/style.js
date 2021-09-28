@@ -117,14 +117,14 @@ export const InputWrapper = styled.div`
   }
 `;
 
-export const ImagesContainer = styled.section`
-  padding: 5rem 0;
-`;
-
 export const List = styled.div`
-  width: 90vw;
-  /* max-width: var(--max-width); */
-  margin: 0 auto;
-  display: grid;
-  gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
