@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaBackward } from 'react-icons/fa';
 
 export const SearchPage = styled.div`
   display: flex;
@@ -9,10 +9,11 @@ export const SearchPage = styled.div`
   box-sizing: border-box;
 `;
 
-export const Title = styled.h1`
-  font-size: 2em;
-  text-align: center;
-  /* color: ${(props) => props.theme.text}; */
+export const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
 `;
 
 export const Content = styled.div`
@@ -40,24 +41,6 @@ export const Input = styled.input`
   }
 `;
 
-// DELETE!!
-export const SampleInput = styled.input.attrs((props) => ({
-  // we can define static props
-  type: 'text',
-
-  // or we can define dynamic ones
-  size: props.size || '1em',
-}))`
-  color: palevioletred;
-  font-size: 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-
-  /* here we use the dynamically computed prop */
-  margin: ${(props) => props.size};
-  padding: ${(props) => props.size};
-`;
-
 export const Button = styled.button`
   border: none;
   background: transparent;
@@ -65,31 +48,22 @@ export const Button = styled.button`
   padding: 0.5rem;
 
   &:hover {
-    /* font-size: 2rem; */
-    color: tomato;
     cursor: pointer;
     background: rgba(63, 191, 191, 0.5);
   }
 `;
 
-export const ButtonOut = styled.button`
-  border: 1px solid grey;
-  border-radius: 4px;
-  padding: 0.5rem;
-  background: ${(props) => props.theme.text};
-  /* color: ${(props) => props.theme.text}; */
-
-  &:hover {
-    font-weight: bold;
-    color: ${(props) => props.theme.navActive};
-  }
-`;
-
 export const SearchIcon = styled(FaSearch)`
   color: ${(props) => props.theme.body};
-  /* margin-right: 0.5rem; */
   &:hover {
-    /* font-size: 2rem; */
+    cursor: pointer;
+  }
+`;
+export const BackIcon = styled(FaBackward)`
+  color: ${(props) => props.theme.text};
+  font-size: 2rem;
+  &:hover {
+    // animate
     cursor: pointer;
   }
 `;
@@ -98,7 +72,6 @@ export const InputWrapper = styled.div`
   position: relative;
   border-radius: 4px;
   background: ${(props) => props.theme.text};
-  /* z-index: 100; */
   color: ${(props) => props.theme.body};
   &:after {
     content: 'Search for your favorite images';

@@ -3,28 +3,16 @@ import Context from '../../context/favorites/context';
 
 import * as S from './style';
 
-const Image = ({
-  webformatURL,
-  id,
-  tags,
-  user,
-  imageSize,
-  add,
-  fav,
-  image,
-}) => {
-  const [isVisible, setIsvisible] = useState(false);
-
+const Image = ({ webformatURL, id, user, imageSize, add, fav, image }) => {
   const {
     favoritesState,
-    favoritesDispatch,
+    // favoritesDispatch,
     handleMouseEnter,
     handleMouseLeave,
     addToFavorites,
     removeFromFavorites,
     isImageInFavorites,
-    switchFavorites,
-    editFavorite,
+    // switchFavorites,
   } = useContext(Context);
   const { hoveredImageId } = favoritesState;
 
