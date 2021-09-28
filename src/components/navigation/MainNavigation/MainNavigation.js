@@ -6,7 +6,7 @@ import SideBar from '../SideBar/SideBar';
 
 import * as S from './style';
 
-export const MainNavigation = (props) => {
+export const MainNavigation = () => {
   const [isOpen, SetIsOpen] = useState(false);
 
   const toggle = () => {
@@ -20,11 +20,18 @@ export const MainNavigation = (props) => {
         <S.NavBarHeader>My Favorite Images</S.NavBarHeader>
         <S.Bars onClick={toggle} />
         <S.NavMenu>
-          <S.NavLink exact to="/">
+          <S.NavLink
+            exact
+            to="/"
+            activeStyle={{ fontWeight: 'bold', color: '#8f71ff' }}
+          >
             <FaHeart />
             Favorites
           </S.NavLink>
-          <S.NavLink to="/search" activeStyle>
+          <S.NavLink
+            to="/search"
+            activeStyle={{ fontWeight: 'bold', color: '#8f71ff' }}
+          >
             <FaSearch />
             Serach
           </S.NavLink>

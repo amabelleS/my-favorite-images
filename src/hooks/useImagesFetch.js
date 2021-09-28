@@ -30,6 +30,7 @@ export const useImagesFetch = () => {
         '🚀 ~ file: useImagesFetch.js ~ line 26 ~ fetchImages ~ error',
         error
       );
+      setError(true);
     }
 
     setIsLoading(false);

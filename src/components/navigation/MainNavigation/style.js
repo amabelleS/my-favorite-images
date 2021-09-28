@@ -28,10 +28,9 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
 
-  &.active {
+  /* &.active {
     color: ${(props) => props.theme.navActive};
-    /* border-bottom: 3px solid ${(props) => props.theme.secondary}; */
-  }
+  } */
 `;
 
 export const Bars = styled(FaBars)`

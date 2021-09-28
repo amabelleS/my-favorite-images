@@ -45,10 +45,13 @@ export const HeartIcon = styled(FaHeart)`
   }
 `;
 export const HeartIconNoMargin = styled(FaHeart)`
+  /* position: relative; */
+  /* text-align: center; */
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transition: opacity 0.2s ease-in-out;
   display: block;
   font-size: 2rem;
+  /* margin: 2rem auto; */
   width: 40%;
   color: red;
   &:hover {
@@ -64,4 +67,19 @@ export const Info = styled.div`
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transition: opacity 0.2s ease-in-out;
   /* color: #fff; */
+`;
+
+export const IconWrapper = styled.div`
+  text-align: center;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.2s ease-in-out;
+  display: block;
+  font-size: 2rem;
+  margin: 2rem auto;
+  width: 40%;
+  color: red;
+  &:hover {
+    font-size: 2.3rem;
+    cursor: pointer;
+  }
 `;

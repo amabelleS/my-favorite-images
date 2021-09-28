@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import Context from '../../context/favorites/context';
 import { abbreviateNumber } from '../../utils';
+import { FaPlus, FaHeart } from 'react-icons/fa';
 
 import * as S from './style';
 
 const Image = ({ webformatURL, id, user, imageSize, add, fav, image }) => {
   const {
     favoritesState,
+    // favoritesDispatch,
     handleMouseEnter,
     handleMouseLeave,
     addToFavorites,
@@ -34,17 +36,23 @@ const Image = ({ webformatURL, id, user, imageSize, add, fav, image }) => {
         <S.Info isVisible={id === hoveredImageId}>
           <span>{user}</span>
           <span>{abbreviateNumber(imageSize)}</span>
-          <S.HeartIconNoMargin
+          {/* <S.HeartIconNoMargin
             isVisible={id === hoveredImageId}
             onClick={handelClickedHeart}
-          />
+          /> */}
         </S.Info>
       ) : null}
-      {add && isImageInFavorites(id) ? (
-        <S.HeartIcon
+      {isImageInFavorites(id) ? (
+        // <S.HeartIcon
+        //   isVisible={id === hoveredImageId}
+        //   onClick={handelClickedHeart}
+        // />
+        <S.IconWrapper
           isVisible={id === hoveredImageId}
           onClick={handelClickedHeart}
-        />
+        >
+          <FaHeart />
+        </S.IconWrapper>
       ) : null}
       {add && !isImageInFavorites(id) ? (
         <S.PlusIcon
