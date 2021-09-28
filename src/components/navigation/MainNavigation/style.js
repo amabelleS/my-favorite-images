@@ -53,7 +53,6 @@ export const Bars = styled(FaBars)`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  /* margin-right: -24px; */
   margin-right: 1.5rem;
 
   @media screen and (max-width: 768px) {
@@ -61,72 +60,72 @@ export const NavMenu = styled.div`
   }
 `;
 
-export const NavBtn = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: -24px;
+// export const NavBtn = styled.div`
+//   display: flex;
+//   align-items: center;
+//   margin-right: -24px;
 
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
+//   @media screen and (max-width: 768px) {
+//     display: none;
+//   }
+// `;
 
-export const NavBtnLink = styled(Link)`
-  border-radius: 4px;
-  background: ${(props) => props.theme.body};
-  padding: 10px 22px;
-  color: ${(props) => props.theme.text};
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.2 ease-in-out;
-  text-decoration: none;
+// export const NavBtnLink = styled(Link)`
+//   border-radius: 4px;
+//   background: ${(props) => props.theme.body};
+//   padding: 10px 22px;
+//   color: ${(props) => props.theme.text};
+//   border: none;
+//   outline: none;
+//   cursor: pointer;
+//   transition: all 0.2 ease-in-out;
+//   text-decoration: none;
 
-  &:hover {
-    transition: all 0.2 ease-in-out;
-    background: ${(props) => props.theme.body};
-    color: ${(props) => props.theme.primary};
-  }
-`;
+//   &:hover {
+//     transition: all 0.2 ease-in-out;
+//     background: ${(props) => props.theme.body};
+//     color: ${(props) => props.theme.primary};
+//   }
+// `;
 
 //----------------------------------------------------------
-export const MainNavigation = styled.nav`
-  background: ${(props) => props.theme.text};
-  color: ${(props) => props.theme.body};
-  flex-basis: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-`;
+// export const MainNavigation = styled.nav`
+//   background: ${(props) => props.theme.text};
+//   color: ${(props) => props.theme.body};
+//   flex-basis: 60px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 1rem;
+// `;
 
-export const NavHeader = styled.div`
-  font-weight: bold;
-  font-size: 1.3rem;
-`;
+// export const NavHeader = styled.div`
+//   font-weight: bold;
+//   font-size: 1.3rem;
+// `;
 
-export const NavToggle = styled.div`
-  font-size: 1.5rem;
-  color: var(--clr-primary-5);
-  background: transparent;
-  border-color: transparent;
-  transition: var(--transition);
-  cursor: pointer;
+// export const NavToggle = styled.div`
+//   font-size: 1.5rem;
+//   color: var(--clr-primary-5);
+//   background: transparent;
+//   border-color: transparent;
+//   transition: var(--transition);
+//   cursor: pointer;
 
-  &:hover {
-    color: var(--clr-primary-1);
-    transform: rotate(90deg);
-  }
+//   &:hover {
+//     color: var(--clr-primary-1);
+//     transform: rotate(90deg);
+//   }
 
-  @media screen and (min-width: 800px) {
-    display: none;
-  }
-`;
+//   @media screen and (min-width: 800px) {
+//     display: none;
+//   }
+// `;
 
-export const NavLinks = styled.div`
-  display: none;
+// export const NavLinks = styled.div`
+//   display: none;
 
-  @media screen and (min-width: 800px) {
-    display: flex;
-  }
-`;
+//   @media screen and (min-width: 800px) {
+//     display: flex;
+//   }
+// `;

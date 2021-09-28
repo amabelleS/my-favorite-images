@@ -14,6 +14,18 @@ export const Header = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 50%;
+  padding: 3rem 0 1rem;
+
+  @media screen and (max-width: 820px) {
+    /* flex-direction: column; */
+    width: 90%;
+    /* padding: 3rem 1rem 1rem; */
+    justify-content: space-evenly;
+  }
+  @media screen and (max-width: 640px) {
+    display: block;
+    /* margin: 0 2rem; */
+  }
 `;
 
 export const Content = styled.div`
@@ -22,19 +34,18 @@ export const Content = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  padding-block-start: 100px;
 `;
 
 export const Input = styled.input`
   background: transparent;
   position: relative;
   border: none;
-  height: 30px;
-  width: 320px;
+  height: 2rem;
+  width: 20rem;
   z-index: 200;
-  padding: 10px;
-  font-size: 20px;
-  font-weight: lighter;
+  font-size: 1.1rem;
+  /* display: flex; */
+  /* flex-direction: row; */
   &:focus {
     outline-style: none;
     outline-color: bisque;

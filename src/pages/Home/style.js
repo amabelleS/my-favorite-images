@@ -22,3 +22,15 @@ export const Title = styled.h1`
   text-align: center;
   /* color: ${(props) => props.theme.text}; */
 `;
+
+export const List = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
