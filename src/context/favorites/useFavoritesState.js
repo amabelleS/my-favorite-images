@@ -55,7 +55,6 @@ const useFavoritesState = () => {
   };
 
   const removeFromFavorites = (id) => {
-    console.log('trying tp remove the bastard');
     const updatedFavorites = [...favoritesState.favorites].filter(
       (fav) => fav.id !== id
     );
