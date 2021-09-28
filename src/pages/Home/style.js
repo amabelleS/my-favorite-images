@@ -34,3 +34,23 @@ export const List = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
 `;
+
+export const NavigationBox = styled.div`
+  background: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.body};
+  width: 150px;
+  height: 99px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const NavigationBoxText = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin: 1rem auto;
+  align-items: center;
+  font-weight: bold;
+`;
