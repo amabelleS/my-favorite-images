@@ -5,7 +5,7 @@ const reducer = (state, action) => {
     case 'set-hoveredImageId':
       return { ...state, hoveredImageId: action.payload };
     case 'set-favorites':
-      localStorage.setItem('favorites', JSON.stringify(action.payload));
+      // localStorage.setItem('favorites', JSON.stringify(action.payload));
       return { ...state, favorites: action.payload };
     case 'set-favoritesIDs':
       localStorage.setItem('favoritesIDs', JSON.stringify(action.payload));
@@ -25,11 +25,6 @@ const useFavoritesState = () => {
   const [favoritesState, favoritesDispatch] = useReducer(reducer, initialSate);
 
   const handleMouseEnter = (id) => {
-    console.log(
-      '🚀 ~ file: useFavoritesState.js ~ line 28 ~ handleMouseEnter ~ id',
-      id
-    );
-
     favoritesDispatch({
       type: 'set-hoveredImageId',
       payload: id,
@@ -40,6 +35,22 @@ const useFavoritesState = () => {
     favoritesDispatch({
       type: 'set-hoveredImageId',
       payload: null,
+    });
+  };
+
+  const addToFavorites = (image) => {
+    const updatedIDs = [...favoritesState.favoritesIDs, image.id];
+    const updatedImages = [...favoritesState.favorites, image];
+    localStorage.setItem('favorites', JSON.stringify(updatedImages));
+
+    favoritesDispatch({
+      type: 'set-favoritesIDs',
+      payload: updatedIDs,
+    });
+
+    favoritesDispatch({
+      type: 'set-favorites',
+      payload: updatedImages,
     });
   };
 
@@ -108,6 +119,7 @@ const useFavoritesState = () => {
     favoritesDispatch,
     handleMouseEnter,
     handleMouseLeave,
+    addToFavorites,
     isImageInFavorites,
     switchFavorites,
     editFavorite,

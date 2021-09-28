@@ -3,7 +3,16 @@ import Context from '../../context/favorites/context';
 
 import * as S from './style';
 
-const Image = ({ webformatURL, id, tags, user, imageSize, add, fav }) => {
+const Image = ({
+  webformatURL,
+  id,
+  tags,
+  user,
+  imageSize,
+  add,
+  fav,
+  image,
+}) => {
   const [isVisible, setIsvisible] = useState(false);
 
   const {
@@ -11,6 +20,7 @@ const Image = ({ webformatURL, id, tags, user, imageSize, add, fav }) => {
     favoritesDispatch,
     handleMouseEnter,
     handleMouseLeave,
+    addToFavorites,
     isImageInFavorites,
     switchFavorites,
     editFavorite,
@@ -24,6 +34,12 @@ const Image = ({ webformatURL, id, tags, user, imageSize, add, fav }) => {
   //     setIsvisible(false);
   //   };
 
+  const handelClickedPlus = () => {
+    if (isImageInFavorites(id)) return;
+    else addToFavorites(image);
+    console.log(favoritesState);
+  };
+
   return (
     <S.ContentImage
       img={webformatURL}
@@ -32,7 +48,12 @@ const Image = ({ webformatURL, id, tags, user, imageSize, add, fav }) => {
       onMouseEnter={() => handleMouseEnter(id)}
       onMouseLeave={handleMouseLeave}
     >
-      {add && <S.PlusIcon isVisible={id === hoveredImageId} />}
+      {add && (
+        <S.PlusIcon
+          isVisible={id === hoveredImageId}
+          onClick={handelClickedPlus}
+        />
+      )}
       {fav ? (
         <>
           <h4>{user}</h4>

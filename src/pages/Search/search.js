@@ -55,7 +55,7 @@ const Search = () => {
             //   '🚀 ~ file: search.js ~ line 54 ~ {images.map ~ image',
             //   image
             // );
-            return <Image key={image.id} {...image} add />;
+            return <Image key={image.id} {...image} add image={image} />;
           })}
         </S.List>
         {isLoading && <h2>Loading...</h2>}
