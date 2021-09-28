@@ -1,24 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import Context from '../../context/favorites/context';
 
 import * as S from './style';
 
-const Image = ({ webformatURL, likes, tags, user, imageSize, add, fav }) => {
+const Image = ({ webformatURL, id, tags, user, imageSize, add, fav }) => {
   const [isVisible, setIsvisible] = useState(false);
 
-  const handleMouseEnter = () => {
-    setIsvisible(true);
-  };
-  const handleMouseLeave = () => {
-    setIsvisible(false);
-  };
+  const {
+    favoritesState,
+    favoritesDispatch,
+    handleMouseEnter,
+    handleMouseLeave,
+    isImageInFavorites,
+    switchFavorites,
+    editFavorite,
+  } = useContext(Context);
+  const { hoveredImageId } = favoritesState;
+
+  //   const handleMouseEnter = () => {
+  //     setIsvisible(true);
+  //   };
+  //   const handleMouseLeave = () => {
+  //     setIsvisible(false);
+  //   };
 
   return (
     <S.ContentImage
       img={webformatURL}
-      onMouseEnter={handleMouseEnter}
+      //   onMouseEnter={handleMouseEnter}
+      //   onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => handleMouseEnter(id)}
       onMouseLeave={handleMouseLeave}
     >
-      {add && <S.PlusIcon isVisible={isVisible} />}
+      {add && <S.PlusIcon isVisible={id === hoveredImageId} />}
       {fav ? (
         <>
           <h4>{user}</h4>

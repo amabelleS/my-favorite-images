@@ -8,6 +8,7 @@ import {
 
 import { GlobalStyle, darkTheme } from './styles/globalStyle';
 import { ThemeProvider } from 'styled-components';
+import { FavoritesProvider } from './context/favorites';
 
 import { MainNavigation as Navbar } from './components/navigation';
 // import { SideBar } from './components/navigation';
@@ -20,13 +21,15 @@ function App() {
     <Router>
       <ThemeProvider theme={darkTheme}>
         <GlobalStyle />
-        {/* <SideBar /> */}
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/search" component={Search} />
-          <Redirect to="/" />
-        </Switch>
+        <FavoritesProvider>
+          {/* <SideBar /> */}
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/search" component={Search} />
+            <Redirect to="/" />
+          </Switch>
+        </FavoritesProvider>
       </ThemeProvider>
     </Router>
   );
