@@ -55,6 +55,10 @@ const useFavoritesState = () => {
   };
 
   const isImageInFavorites = (id) => {
+    console.log(
+      '🚀 ~ file: useFavoritesState.js ~ line 59 ~ isImageInFavorites ~ favoritesState.favoritesIDs.includes(id)',
+      favoritesState.favoritesIDs.includes(id)
+    );
     return favoritesState.favoritesIDs.includes(id);
   };
 

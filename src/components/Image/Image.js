@@ -48,12 +48,27 @@ const Image = ({
       onMouseEnter={() => handleMouseEnter(id)}
       onMouseLeave={handleMouseLeave}
     >
-      {add && (
+      {isImageInFavorites(id) ? (
+        <S.HeartIcon
+          isVisible={isImageInFavorites(id) && id === hoveredImageId}
+        />
+      ) : add ? (
         <S.PlusIcon
-          isVisible={id === hoveredImageId}
+          isVisible={id === hoveredImageId && !isImageInFavorites(id)}
           onClick={handelClickedPlus}
         />
-      )}
+      ) : null}
+      {/* {add && (
+        <S.PlusIcon
+          isVisible={id === hoveredImageId && !isImageInFavorites(id)}
+          onClick={handelClickedPlus}
+        />
+      )} */}
+      {/* {
+        <S.HeartIcon
+          isVisible={isImageInFavorites(id) && id === hoveredImageId}
+        />
+      } */}
       {fav ? (
         <>
           <h4>{user}</h4>
