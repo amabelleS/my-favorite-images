@@ -21,6 +21,7 @@ const Image = ({
     handleMouseEnter,
     handleMouseLeave,
     addToFavorites,
+    removeFromFavorites,
     isImageInFavorites,
     switchFavorites,
     editFavorite,
@@ -40,6 +41,10 @@ const Image = ({
     console.log(favoritesState);
   };
 
+  const handelClickedHeart = () => {
+    isImageInFavorites(id) ? removeFromFavorites(id) : addToFavorites(image);
+  };
+
   return (
     <S.ContentImage
       img={webformatURL}
@@ -48,27 +53,28 @@ const Image = ({
       onMouseEnter={() => handleMouseEnter(id)}
       onMouseLeave={handleMouseLeave}
     >
-      {isImageInFavorites(id) ? (
+      {add && isImageInFavorites(id) ? (
+        <S.HeartIcon
+          isVisible={id === hoveredImageId}
+          onClick={handelClickedHeart}
+        />
+      ) : (
+        <S.PlusIcon
+          isVisible={id === hoveredImageId}
+          onClick={handelClickedPlus}
+        />
+      )}
+      {/* {isImageInFavorites(id) ? (
         <S.HeartIcon
           isVisible={isImageInFavorites(id) && id === hoveredImageId}
+          onClick={handelClickedHeart}
         />
       ) : add ? (
         <S.PlusIcon
           isVisible={id === hoveredImageId && !isImageInFavorites(id)}
           onClick={handelClickedPlus}
         />
-      ) : null}
-      {/* {add && (
-        <S.PlusIcon
-          isVisible={id === hoveredImageId && !isImageInFavorites(id)}
-          onClick={handelClickedPlus}
-        />
-      )} */}
-      {/* {
-        <S.HeartIcon
-          isVisible={isImageInFavorites(id) && id === hoveredImageId}
-        />
-      } */}
+      ) : null} */}
       {fav ? (
         <>
           <h4>{user}</h4>

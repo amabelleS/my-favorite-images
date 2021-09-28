@@ -8,7 +8,6 @@ const reducer = (state, action) => {
       // localStorage.setItem('favorites', JSON.stringify(action.payload));
       return { ...state, favorites: action.payload };
     case 'set-favoritesIDs':
-      localStorage.setItem('favoritesIDs', JSON.stringify(action.payload));
       return { ...state, favoritesIDs: action.payload };
 
     default:
@@ -42,6 +41,7 @@ const useFavoritesState = () => {
     const updatedIDs = [...favoritesState.favoritesIDs, image.id];
     const updatedImages = [...favoritesState.favorites, image];
     localStorage.setItem('favorites', JSON.stringify(updatedImages));
+    localStorage.setItem('favoritesIDs', JSON.stringify(updatedIDs));
 
     favoritesDispatch({
       type: 'set-favoritesIDs',
@@ -54,67 +54,41 @@ const useFavoritesState = () => {
     });
   };
 
-  const isImageInFavorites = (id) => {
-    console.log(
-      '🚀 ~ file: useFavoritesState.js ~ line 59 ~ isImageInFavorites ~ favoritesState.favoritesIDs.includes(id)',
-      favoritesState.favoritesIDs.includes(id)
+  const removeFromFavorites = (id) => {
+    console.log('trying tp remove the bastard');
+    const updatedFavorites = [...favoritesState.favorites].filter(
+      (fav) => fav.id !== id
     );
-    return favoritesState.favoritesIDs.includes(id);
-  };
+    const updatedIDs = [...favoritesState.favoritesIDs].filter(
+      (currId) => currId !== id
+    );
 
-  const editFavorite = (user, text) => {
-    const uuid = user.login.uuid;
-
-    const updatedFavorite = { ...user, freeTextInput: text };
-    const updatedFavorites = [
-      ...favoritesState.favorites.map((favorite) =>
-        favorite.login.uuid === uuid ? updatedFavorite : favorite
-      ),
-    ];
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    localStorage.setItem('favoritesIDs', JSON.stringify(updatedIDs));
 
     favoritesDispatch({
       type: 'set-favorites',
       payload: updatedFavorites,
     });
+
+    favoritesDispatch({
+      type: 'set-favoritesIDs',
+      payload: updatedIDs,
+    });
   };
 
-  const switchFavorites = (user) => {
-    const uuid = user.login.uuid;
-    // check if user is not in favorites list
-    if (!isImageInFavorites(uuid)) {
-      // then add him to the list, adding freeTextInput
-      const updatedFavorites = [
-        ...favoritesState.favorites,
-        { ...user, freeTextInput: '' },
-      ];
-      const updatedUUIDs = [...favoritesState.favoritesUUIDs, uuid];
+  const isImageInFavorites = (id) => {
+    return favoritesState.favoritesIDs.includes(id);
+  };
 
-      favoritesDispatch({
-        type: 'set-favorites',
-        payload: updatedFavorites,
-      });
-
-      favoritesDispatch({
-        type: 'set-favoritesUUIDs',
-        payload: updatedUUIDs,
-      });
+  const switchFavorites = (image) => {
+    // check if image is not in favorites list
+    if (!isImageInFavorites(image.id)) {
+      // then add to the list
+      addToFavorites(image);
     } else {
       //remove from favorites
-      const updatedFavorites = [...favoritesState.favorites].filter(
-        (fav) => fav.login.uuid !== uuid
-      );
-      const updatedUUIDs = [...favoritesState.favoritesUUIDs].filter(
-        (id) => id !== uuid
-      );
-      favoritesDispatch({
-        type: 'set-favorites',
-        payload: updatedFavorites,
-      });
-
-      favoritesDispatch({
-        type: 'set-favoritesUUIDs',
-        payload: updatedUUIDs,
-      });
+      removeFromFavorites(image.id);
     }
   };
 
@@ -124,9 +98,9 @@ const useFavoritesState = () => {
     handleMouseEnter,
     handleMouseLeave,
     addToFavorites,
+    removeFromFavorites,
     isImageInFavorites,
     switchFavorites,
-    editFavorite,
   };
 };
 
