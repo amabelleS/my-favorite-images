@@ -18,8 +18,7 @@ export const PlusIcon = styled(FaPlus)`
   /* position: relative; */
   text-align: center;
   /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; */
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transition: opacity 0.2s ease-in-out;
+  /* transition: opacity 0.2s ease-in-out; */
   display: block;
   font-size: 2rem;
   margin: 2rem auto;
@@ -33,9 +32,8 @@ export const PlusIcon = styled(FaPlus)`
 export const HeartIcon = styled(FaHeart)`
   /* position: relative; */
   text-align: center;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  /* opacity: ${(props) => (props.isVisible ? 1 : 0)}; */
-  transition: opacity 0.2s ease-in-out;
+  /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; */
+  /* transition: opacity 0.2s ease-in-out; */
   display: block;
   font-size: 2rem;
   margin: 2rem auto;
@@ -47,16 +45,9 @@ export const HeartIcon = styled(FaHeart)`
   }
 `;
 
-// export const Heart = ({ isVisible, onClick }) => {
-//   return <HeartIcon isVisible={isVisible} onClick={onClick} />;
-// };
-
 export const HeartIconNoMargin = styled(FaHeart)`
-  /* position: relative; */
-  /* text-align: center; */
   /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; */
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transition: opacity 0.2s ease-in-out;
+  /* transition: opacity 0.2s ease-in-out; */
   display: block;
   font-size: 2rem;
   /* margin: 2rem auto; */
@@ -73,16 +64,14 @@ export const Info = styled.div`
   align-items: center;
   font-weight: bold;
   /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; */
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transition: opacity 0.2s ease-in-out;
+  /* transition: opacity 0.2s ease-in-out; */
   /* color: #fff; */
 `;
 
 export const IconWrapper = styled.div`
   text-align: center;
   /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; */
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transition: opacity 0.2s ease-in-out;
+  /* transition: opacity 0.2s ease-in-out; */
   display: block;
   font-size: 2rem;
   margin: 2rem auto;
