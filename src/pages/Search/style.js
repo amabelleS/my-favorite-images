@@ -154,8 +154,8 @@ export const PageBtn = styled.div`
   margin: 0.5rem;
   transition: all 0.3s linear;
 
-  &:active {
-    background: ${(props) => props.theme.body};
-    color: ${(props) => props.theme.text};
+  &.active-btn {
+    /* background: var(--clr-primary-1); */
+    color: ${(props) => props.theme.navActive};
   }
 `;

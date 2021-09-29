@@ -113,8 +113,9 @@ const Search = () => {
               return (
                 <S.PageBtn
                   key={index}
-                  // className={`page-btn ${index === page ? 'active-btn' : null}`}
+                  className={`${index === page ? 'active-btn' : null}`}
                   onClick={() => handlePage(index)}
+                  active
                 >
                   {index + 1}
                 </S.PageBtn>
