@@ -155,7 +155,6 @@ export const PageBtn = styled.div`
   transition: all 0.3s linear;
 
   &.active-btn {
-    /* background: var(--clr-primary-1); */
     color: ${(props) => props.theme.navActive};
   }
 `;
