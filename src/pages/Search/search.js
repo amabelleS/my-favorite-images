@@ -48,6 +48,8 @@ const Search = () => {
   //   setShowModal((prev) => !prev);
   // };
 
+  const onKeydownHandle = (e) => e.key === 'Enter' && handelSubmit(e);
+
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -58,6 +60,7 @@ const Search = () => {
   const blurHandler = () => {
     SetFocused(false);
   };
+
   const handelSubmit = (e) => {
     e.preventDefault();
     fetchImages(searchTerm);
@@ -88,6 +91,7 @@ const Search = () => {
                 onChange={handleInputChange}
                 type="text"
                 value={searchTerm}
+                onKeyDown={onKeydownHandle}
               />
             </S.InputWrapper>
           </S.SearchInputWrapper>
