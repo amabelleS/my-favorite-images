@@ -1,47 +1,66 @@
 import styled from 'styled-components';
+import { MdClose } from 'react-icons/md';
 
-// export const Model = styled.div`
-//   z-index: auto;
-//   display: ${({ show }) => (show ? 'block' : 'none')};
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   height: 100vh;
-//   width: 100vw;
-//   background: rgba(0, 0, 0, 0.5);
-// `;
+export const Background = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-// export const Container = styled.div`
-//   position: fixed;
-//   background: antiquewhite;
-//   width: 33%;
-//   height: auto;
+export const ModalWrapper = styled.div`
+  width: 800px;
+  height: 500px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
+`;
 
-//   top: ${({ openPos }) =>
-//     ({
-//       [CM_CENTER_CENTER]: '50%',
-//       [CM_TOP_LEFT]: '10%',
-//       [CM_TOP_CENTER]: '10%',
-//       [CM_TOP_RIGHT]: '10%',
-//     }[openPos])};
+export const ModalImg = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background: #000;
+`;
 
-//   left: ${({ openPos }) =>
-//     ({
-//       [CM_CENTER_CENTER]: '50%',
-//       [CM_TOP_LEFT]: '5%',
-//       [CM_TOP_CENTER]: '50%',
-//       [CM_TOP_RIGHT]: '95%',
-//     }[openPos])};
+export const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.8;
+  color: #141414;
 
-//   transform: ${({ openPos }) =>
-//     ({
-//       [CM_CENTER_CENTER]: 'translate(-50%,-50%)',
-//       [CM_TOP_LEFT]: 'translate(0,0)',
-//       [CM_TOP_CENTER]: 'translate(-50%,0)',
-//       [CM_TOP_RIGHT]: 'translate(-100%,0)',
-//     }[openPos])};
+  p {
+    margin-bottom: 1rem;
+  }
 
-//   border-radius: 10px;
-//   padding: 0.75rem;
-//   color: rgba(0, 0, 139, 0.7);
-// `;
+  button {
+    padding: 10px 24px;
+    background: #141414;
+    color: #fff;
+    border: none;
+  }
+`;
+
+export const CloseModalButton = styled(MdClose)`
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  z-index: 10;
+`;

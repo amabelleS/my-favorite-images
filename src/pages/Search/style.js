@@ -104,7 +104,7 @@ export const InputWrapper = styled.div`
     left: 5%;
     font-size: ${({ focused }) => (focused ? '14px' : '16px')};
     transform: ${({ focused }) =>
-      focused ? 'translateY(-50px) translateX(-5%);' : 'translateY(-50%);'};
+      focused ? 'translateY(-50px) translateX(5%);' : 'translateY(-50%);'};
   }
 `;
 
