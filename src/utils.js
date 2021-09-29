@@ -26,7 +26,7 @@ export function abbreviateNumber(value) {
 }
 
 export const paginate = (images) => {
-  const itemsPerPage = 10;
+  const itemsPerPage = 20;
   const numberOfPages = Math.ceil(images.length / itemsPerPage);
 
   const newImages = Array.from({ length: numberOfPages }, (_, index) => {
@@ -34,6 +34,10 @@ export const paginate = (images) => {
     return images.slice(start, start + itemsPerPage);
   });
 
+  console.log(
+    '🚀 ~ file: utils.js ~ line 29 ~ paginate ~ newImages',
+    newImages
+  );
   return newImages;
 };
 

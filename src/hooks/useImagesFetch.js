@@ -14,7 +14,7 @@ export const useImagesFetch = () => {
       const response = await axios.get(
         `https://pixabay.com/api/?key=${
           process.env.REACT_APP_PIXABAY_API_KEY
-        }&q=${searchTerm || ''}&per_page=30&image_type=photo`
+        }&q=${searchTerm || ''}&per_page=120&image_type=photo`
         // `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&image_type=photo`
         //   `https://pixabay.com/api/`
       );

@@ -119,3 +119,43 @@ export const List = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
 `;
+
+// PAGINATION ---------------------
+export const BtnContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: 775px) {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+`;
+
+export const PaginateBtn = styled.div`
+  background: transparent;
+  border-color: transparent;
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+`;
+
+export const PageBtn = styled.div`
+  width: 1rem;
+  height: 1rem;
+  background: ${(props) => props.theme.body};
+  /* border: 1px solid ${(props) => props.theme.text}; */
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: all 0.3s linear;
+
+  &:active {
+    background: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.text};
+  }
+`;

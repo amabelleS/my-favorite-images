@@ -41,6 +41,7 @@ export const NavigationBox = styled.div`
   color: ${(props) => props.theme.body};
   width: 150px;
   height: 99px;
+  border: 6px dashed ${(props) => props.theme.body};
 
   &:hover {
     cursor: pointer;
