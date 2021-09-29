@@ -24,3 +24,17 @@ export function abbreviateNumber(value) {
   }
   return newValue;
 }
+
+export const paginate = (images) => {
+  const itemsPerPage = 10;
+  const numberOfPages = Math.ceil(images.length / itemsPerPage);
+
+  const newImages = Array.from({ length: numberOfPages }, (_, index) => {
+    const start = index * itemsPerPage;
+    return images.slice(start, start + itemsPerPage);
+  });
+
+  return newImages;
+};
+
+export default paginate;

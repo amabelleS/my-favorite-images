@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 import * as S from './style';
 
-export const Modal = ({ showModal, setShowModal, imgUrl }) => {
+export const Modal = ({ showModal, setShowModal, imgUrl, msg }) => {
   const modalRef = useRef();
   const defaultUrl =
     'https://cdn.pixabay.com/photo/2015/09/23/08/16/thunder-953118_960_720.jpg';
@@ -45,9 +45,11 @@ export const Modal = ({ showModal, setShowModal, imgUrl }) => {
             <S.ModalWrapper showModal={showModal}>
               <S.ModalImg src={imgUrl || defaultUrl} alt="modal-image" />
               <S.ModalContent>
-                <h1>Are you ready?</h1>
-                <p>Get exclusive access to our next launch.</p>
-                <button>Join Now</button>
+                <h1>An Error Accurred</h1>
+                <p>{msg && msg}.</p>
+                <button onClick={() => setShowModal((prev) => !prev)}>
+                  Close
+                </button>
               </S.ModalContent>
               <S.CloseModalButton
                 aria-label="Close modal"
