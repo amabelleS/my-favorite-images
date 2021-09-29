@@ -14,7 +14,36 @@ const Search = () => {
   const [focused, SetFocused] = useState([]);
   const [showModal, setShowModal] = useState(false);
   let history = useHistory();
+  const [page, setPage] = useState(0);
+  const [paginatedImages, setPaginatedImages] = useState([]);
 
+  useEffect(() => {
+    if (isLoading) return;
+    setPaginatedImages(images[page]);
+  }, [isLoading, page, images]);
+
+  const nextPage = () => {
+    setPage((oldPage) => {
+      let nextPage = oldPage + 1;
+      if (nextPage > images.length - 1) {
+        nextPage = 0;
+      }
+      return nextPage;
+    });
+  };
+  const prevPage = () => {
+    setPage((oldPage) => {
+      let prevPage = oldPage - 1;
+      if (prevPage < 0) {
+        prevPage = images.length - 1;
+      }
+      return prevPage;
+    });
+  };
+
+  const handlePage = (index) => {
+    setPage(index);
+  };
   // const openModal = () => {
   //   setShowModal((prev) => !prev);
   // };
@@ -36,19 +65,12 @@ const Search = () => {
 
   useEffect(() => {
     setShowModal(error.isError);
-    // setShowModal((prev) => !prev);
   }, [error.isError]);
 
   return (
     <S.SearchPage>
       <S.Content>
         <S.Header>
-          {/* <button
-            style={{ width: '11rem', background: 'white' }}
-            onClick={openModal}
-          >
-            Modal
-          </button> */}
           <Modal
             showModal={showModal}
             setShowModal={setShowModal}
@@ -71,10 +93,32 @@ const Search = () => {
           </S.SearchInputWrapper>
         </S.Header>
         <S.List>
-          {images.map((image) => {
-            return <Image key={image.id} {...image} add={true} image={image} />;
-          })}
+          {paginatedImages &&
+            paginatedImages.map((image) => {
+              return (
+                <Image key={image.id} {...image} add={true} image={image} />
+              );
+            })}
         </S.List>
+        {!isLoading && (
+          <S.BtnContainer>
+            <S.PaginateBtn className="prev-btn" onClick={prevPage}>
+              prev
+            </S.PaginateBtn>
+            {images.map((item, index) => {
+              return (
+                <S.PageBtn
+                  key={index}
+                  // className={`page-btn ${index === page ? 'active-btn' : null}`}
+                  onClick={() => handlePage(index)}
+                >
+                  {index + 1}
+                </S.PageBtn>
+              );
+            })}
+            <S.PaginateBtn onClick={nextPage}>next</S.PaginateBtn>
+          </S.BtnContainer>
+        )}
         {isLoading && <Spinner />}
       </S.Content>
     </S.SearchPage>

@@ -23,7 +23,8 @@ export const useImagesFetch = () => {
         response.data.hits
       );
       if (response.data.hits.length > 0) {
-        setImages(response.data.hits);
+        // paginate(response.data.hits);
+        setImages(paginate(response.data.hits));
       } else {
         setError({
           isError: true,
