@@ -14,12 +14,13 @@ export const Content = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  padding-block-start: 100px;
+  p
 `;
 
 export const Title = styled.h1`
   font-size: 2em;
   text-align: center;
+  padding: 2rem 0 1rem;
   /* color: ${(props) => props.theme.text}; */
 `;
 

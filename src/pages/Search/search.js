@@ -33,18 +33,20 @@ const Search = () => {
       <S.Content>
         <S.Header>
           <S.BackIcon onClick={() => history.push('./')} />
-          <S.InputWrapper focused={searchTerm || focused}>
-            <S.Input
-              onFocus={focusHandler}
-              onBlur={blurHandler}
-              onChange={handleInputChange}
-              type="text"
-              value={searchTerm}
-            />
+          <S.SearchInputWrapper>
             <S.Button type="submit" onClick={handelSubmit}>
               <S.SearchIcon />
             </S.Button>
-          </S.InputWrapper>
+            <S.InputWrapper focused={searchTerm || focused}>
+              <S.Input
+                onFocus={focusHandler}
+                onBlur={blurHandler}
+                onChange={handleInputChange}
+                type="text"
+                value={searchTerm}
+              />
+            </S.InputWrapper>
+          </S.SearchInputWrapper>
         </S.Header>
         <S.List>
           {images.map((image) => {

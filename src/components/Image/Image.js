@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Context from '../../context/favorites/context';
 import { abbreviateNumber } from '../../utils';
 import { FaPlus, FaHeart } from 'react-icons/fa';
@@ -6,6 +6,7 @@ import { FaPlus, FaHeart } from 'react-icons/fa';
 import * as S from './style';
 
 const Image = ({ webformatURL, id, user, imageSize, add, fav, image }) => {
+  const [isVisible, setIsVisible] = useState(false);
   const {
     favoritesState,
     // favoritesDispatch,
@@ -26,6 +27,17 @@ const Image = ({ webformatURL, id, user, imageSize, add, fav, image }) => {
     isImageInFavorites(id) ? removeFromFavorites(id) : addToFavorites(image);
   };
 
+  //   const IconHeart = ({ isVisible, children }) => {
+  //     return (
+  //       <S.HeartIcon
+  //         isVisible={id === hoveredImageId}
+  //         onClick={handelClickedHeart}
+  //       >
+  //         {children}
+  //       </S.HeartIcon>
+  //     );
+  //   };
+
   return (
     <S.ContentImage
       img={webformatURL}
@@ -36,24 +48,24 @@ const Image = ({ webformatURL, id, user, imageSize, add, fav, image }) => {
         <S.Info isVisible={id === hoveredImageId}>
           <span>{user}</span>
           <span>{abbreviateNumber(imageSize)}</span>
-          {/* <S.HeartIconNoMargin
+          <S.HeartIconNoMargin
             isVisible={id === hoveredImageId}
             onClick={handelClickedHeart}
-          /> */}
+          />
         </S.Info>
       ) : null}
-      {isImageInFavorites(id) ? (
-        // <S.HeartIcon
-        //   isVisible={id === hoveredImageId}
-        //   onClick={handelClickedHeart}
-        // />
-        <S.IconWrapper
+      {add && isImageInFavorites(id) ? (
+        <S.HeartIcon
           isVisible={id === hoveredImageId}
           onClick={handelClickedHeart}
-        >
-          <FaHeart />
-        </S.IconWrapper>
-      ) : null}
+        />
+      ) : // <S.IconWrapper
+      //   isVisible={id === hoveredImageId}
+      //   onClick={handelClickedHeart}
+      // >
+      //   <FaHeart />
+      // </S.IconWrapper>
+      null}
       {add && !isImageInFavorites(id) ? (
         <S.PlusIcon
           isVisible={id === hoveredImageId}

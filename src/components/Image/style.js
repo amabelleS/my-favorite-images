@@ -17,7 +17,8 @@ export const ContentImage = styled.div`
 export const PlusIcon = styled(FaPlus)`
   /* position: relative; */
   text-align: center;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; */
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transition: opacity 0.2s ease-in-out;
   display: block;
   font-size: 2rem;
@@ -33,6 +34,7 @@ export const HeartIcon = styled(FaHeart)`
   /* position: relative; */
   text-align: center;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  /* opacity: ${(props) => (props.isVisible ? 1 : 0)}; */
   transition: opacity 0.2s ease-in-out;
   display: block;
   font-size: 2rem;
@@ -44,10 +46,16 @@ export const HeartIcon = styled(FaHeart)`
     cursor: pointer;
   }
 `;
+
+// export const Heart = ({ isVisible, onClick }) => {
+//   return <HeartIcon isVisible={isVisible} onClick={onClick} />;
+// };
+
 export const HeartIconNoMargin = styled(FaHeart)`
   /* position: relative; */
   /* text-align: center; */
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; */
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transition: opacity 0.2s ease-in-out;
   display: block;
   font-size: 2rem;
@@ -64,14 +72,16 @@ export const Info = styled.div`
   flex-direction: column;
   align-items: center;
   font-weight: bold;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; */
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transition: opacity 0.2s ease-in-out;
   /* color: #fff; */
 `;
 
 export const IconWrapper = styled.div`
   text-align: center;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; */
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transition: opacity 0.2s ease-in-out;
   display: block;
   font-size: 2rem;

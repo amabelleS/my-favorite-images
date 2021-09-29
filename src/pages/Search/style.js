@@ -17,14 +17,11 @@ export const Header = styled.div`
   padding: 3rem 0 1rem;
 
   @media screen and (max-width: 820px) {
-    /* flex-direction: column; */
     width: 90%;
-    /* padding: 3rem 1rem 1rem; */
     justify-content: space-evenly;
   }
   @media screen and (max-width: 640px) {
     display: block;
-    /* margin: 0 2rem; */
   }
 `;
 
@@ -42,7 +39,8 @@ export const Input = styled.input`
   border: none;
   height: 2rem;
   width: 20rem;
-  z-index: 200;
+  /* width: 80vw; */
+  /* z-index: 200; */
   font-size: 1.1rem;
   /* display: flex; */
   /* flex-direction: row; */
@@ -50,11 +48,14 @@ export const Input = styled.input`
     outline-style: none;
     outline-color: bisque;
   }
+  @media screen and (max-width: 678px) {
+    width: 80vw;
+  }
 `;
 
 export const Button = styled.button`
   border: none;
-  background: transparent;
+  background: ${(props) => props.theme.text};
   color: ${(props) => props.theme.text};
   padding: 0.5rem;
 
@@ -79,9 +80,15 @@ export const BackIcon = styled(FaBackward)`
   }
 `;
 
+export const SearchInputWrapper = styled.div`
+  display: flex;
+  width: 90%;
+  justify-content: center;
+`;
+
 export const InputWrapper = styled.div`
   position: relative;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   background: ${(props) => props.theme.text};
   color: ${(props) => props.theme.body};
   &:after {
@@ -89,8 +96,8 @@ export const InputWrapper = styled.div`
     position: absolute;
     transition: transform 0.15s linear, font-size 0.25s linear;
     top: 50%;
-    width: 95%;
-    /* z-index: 100; */
+    /* width: 95%; */
+    z-index: 100;
     letter-spacing: 1px;
     color: ${(props) => props.theme.navActive};
     font-weight: normal;
