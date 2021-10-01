@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useImagesFetch } from '../../hooks/useImagesFetch';
+// import { useImagesFetch } from '../../hooks/useImagesFetch';
+import { useImagesReducerFetch } from '../../hooks/useImagesReducerFetch';
 import Image from '../../components/Image';
 import Spinner from '../../components/UIElements/Spinner';
 import { Modal } from '../../components/UIElements/Modal/Modal';
@@ -8,7 +9,10 @@ import { Modal } from '../../components/UIElements/Modal/Modal';
 import * as S from './style';
 
 const Search = () => {
-  const { images, isLoading, error, fetchImages } = useImagesFetch();
+  // const { images, isLoading, error, fetchImages } = useImagesFetch();
+  const { state, dispatch, fetchImages } = useImagesReducerFetch();
+  const { images, isLoading, error } = state;
+  console.log('🚀 ~ file: search.js ~ line 15 ~ Search ~ images', state.images);
   const [searchTerm, setSearchTerm] = useState('');
   const [focused, SetFocused] = useState([]);
   const [showModal, setShowModal] = useState(false);
