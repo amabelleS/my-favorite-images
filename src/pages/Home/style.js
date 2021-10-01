@@ -21,10 +21,9 @@ export const Title = styled.h1`
   font-size: 2em;
   text-align: center;
   padding: 2rem 0 1rem;
-  /* color: ${(props) => props.theme.text}; */
 `;
 
-export const List = styled.div`
+export const List = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

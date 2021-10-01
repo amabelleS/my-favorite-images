@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('Navigate', () => {
+  cy.visit('http://localhost:3000/');
+  cy.title().should('eq', 'My Favorite Images');
+  cy.get('.sc-dIUeWJ').click();
+  cy.url().should('include', 'search');
+  cy.get('.sc-giImIA').type('sunshine').should('have.value', 'sunshine');
+  cy.get('.sc-ezredP').click();
+});

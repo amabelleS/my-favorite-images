@@ -39,11 +39,7 @@ export const Input = styled.input`
   border: none;
   height: 2rem;
   width: 20rem;
-  /* width: 80vw; */
-  /* z-index: 200; */
   font-size: 1.1rem;
-  /* display: flex; */
-  /* flex-direction: row; */
   &:focus {
     outline-style: none;
     outline-color: bisque;
@@ -108,7 +104,7 @@ export const InputWrapper = styled.div`
   }
 `;
 
-export const List = styled.div`
+export const List = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -148,7 +144,6 @@ export const PageBtn = styled.div`
   width: 1rem;
   height: 1rem;
   background: ${(props) => props.theme.body};
-  /* border: 1px solid ${(props) => props.theme.text}; */
   border-radius: 5px;
   cursor: pointer;
   margin: 0.5rem;

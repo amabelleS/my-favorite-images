@@ -15,25 +15,20 @@ export const useImagesFetch = () => {
         `https://pixabay.com/api/?key=${
           process.env.REACT_APP_PIXABAY_API_KEY
         }&q=${searchTerm || ''}&per_page=120&image_type=photo`
-        // `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&image_type=photo`
-        //   `https://pixabay.com/api/`
       );
       console.log(
-        '🚀 ~ file: useImagesFetch.js ~ line 16 ~ fetchImages ~ response',
-        response.data.hits
+        '🚀 ~ file: useImagesFetch.js ~ line 19 ~ fetchImages ~ response',
+        response
       );
-      if (response.data.hits.length > 0) {
-        // paginate(response.data.hits);
+      // if (response.data.hits.length > 0) {
+      if (+response.data.totalHits > 0) {
         setImages(paginate(response.data.hits));
       } else {
         setError({
           isError: true,
-          msg: 'Please try differnt key word for your search, or check your spelling',
+          msg: 'No Hits. Please try differnt key word for your search, or check your spelling',
         });
       }
-      // setImages((prev) => {
-      //   return [...prev, ...response.data.hits];
-      // });
     } catch (error) {
       console.log(
         '🚀 ~ file: useImagesFetch.js ~ line 26 ~ fetchImages ~ error',

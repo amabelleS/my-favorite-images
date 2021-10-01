@@ -9,7 +9,6 @@ import * as S from './style';
 
 const Search = () => {
   const { images, isLoading, error, fetchImages } = useImagesFetch();
-  console.log('🚀 ~ file: search.js ~ line 12 ~ Search ~ error', error);
   const [searchTerm, setSearchTerm] = useState('');
   const [focused, SetFocused] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -70,6 +69,23 @@ const Search = () => {
     setShowModal(error.isError);
   }, [error.isError]);
 
+  const list = (
+    <S.List data-cy="test-list">
+      {paginatedImages &&
+        paginatedImages.map((image, index) => {
+          return (
+            <Image
+              key={image.id}
+              {...image}
+              add={true}
+              image={image}
+              index={index}
+            />
+          );
+        })}
+    </S.List>
+  );
+
   return (
     <S.SearchPage>
       <S.Content>
@@ -96,14 +112,15 @@ const Search = () => {
             </S.InputWrapper>
           </S.SearchInputWrapper>
         </S.Header>
-        <S.List>
+        {list}
+        {/* <S.List>
           {paginatedImages &&
             paginatedImages.map((image) => {
               return (
                 <Image key={image.id} {...image} add={true} image={image} />
               );
             })}
-        </S.List>
+        </S.List> */}
         {!isLoading && (
           <S.BtnContainer>
             <S.PaginateBtn className="prev-btn" onClick={prevPage}>
@@ -116,6 +133,7 @@ const Search = () => {
                   className={`${index === page ? 'active-btn' : null}`}
                   onClick={() => handlePage(index)}
                   active
+                  // data-test-target="plus-icon"
                 >
                   {index + 1}
                 </S.PageBtn>

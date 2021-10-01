@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FaPlus, FaHeart } from 'react-icons/fa';
 
-export const ContentImage = styled.div`
+export const ContentImage = styled.li`
   background-image: url(${(props) => props.img});
   width: 150px;
   height: 99px;
@@ -23,6 +23,7 @@ export const PlusIcon = styled(FaPlus)`
   font-size: 2rem;
   margin: 2rem auto;
   width: 40%;
+  z-index: 777;
   &:hover {
     font-size: 2.3rem;
     cursor: pointer;
@@ -76,7 +77,8 @@ export const IconWrapper = styled.div`
   font-size: 2rem;
   margin: 2rem auto;
   width: 40%;
-  color: red;
+  z-index: 777;
+  /* color: red; */
   &:hover {
     font-size: 2.3rem;
     cursor: pointer;
