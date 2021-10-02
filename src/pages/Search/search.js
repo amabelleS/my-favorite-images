@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-// import { useImagesFetch } from '../../hooks/useImagesFetch';
 import { useImagesReducerFetch } from '../../hooks/useImagesReducerFetch';
 import Image from '../../components/Image';
 import Spinner from '../../components/UIElements/Spinner';
@@ -9,7 +8,6 @@ import { Modal } from '../../components/UIElements/Modal/Modal';
 import * as S from './style';
 
 const Search = () => {
-  // const { images, isLoading, error, fetchImages } = useImagesFetch();
   const { state, fetchImages } = useImagesReducerFetch();
   const { images, isLoading, error } = state;
   const [searchTerm, setSearchTerm] = useState('');
@@ -121,14 +119,6 @@ const Search = () => {
           </S.SearchInputWrapper>
         </S.Header>
         {list}
-        {/* <S.List>
-          {paginatedImages &&
-            paginatedImages.map((image) => {
-              return (
-                <Image key={image.id} {...image} add={true} image={image} />
-              );
-            })}
-        </S.List> */}
         {!isLoading && (
           <S.BtnContainer>
             <S.PaginateBtn className="prev-btn" onClick={prevPage}>
@@ -141,7 +131,6 @@ const Search = () => {
                   className={`${index === page ? 'active-btn' : null}`}
                   onClick={() => handlePage(index)}
                   active
-                  // data-test-target="plus-icon"
                 >
                   {index + 1}
                 </S.PageBtn>

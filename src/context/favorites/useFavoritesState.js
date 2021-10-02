@@ -80,6 +80,7 @@ const useFavoritesState = () => {
     return favoritesState.favoritesIDs.includes(id);
   };
 
+  // Not in use...
   const switchFavorites = (image) => {
     // check if image is not in favorites list
     if (!isImageInFavorites(image.id)) {

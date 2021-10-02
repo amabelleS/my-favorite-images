@@ -84,7 +84,6 @@ export const SearchInputWrapper = styled.div`
 
 export const InputWrapper = styled.div`
   position: relative;
-  /* border-radius: 4px; */
   background: ${(props) => props.theme.text};
   color: ${(props) => props.theme.body};
   &:after {
@@ -92,7 +91,6 @@ export const InputWrapper = styled.div`
     position: absolute;
     transition: transform 0.15s linear, font-size 0.25s linear;
     top: 50%;
-    /* width: 95%; */
     z-index: 100;
     letter-spacing: 1px;
     color: ${(props) => props.theme.navActive};
