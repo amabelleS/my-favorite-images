@@ -5,8 +5,8 @@ export const ContentImage = styled.li`
   background-image: url(${(props) => props.img});
   width: 150px;
   height: 99px;
-  /* overflow-y: hidden !important; */
-  /* overflow-x: hidden !important; */
+  overflow-y: hidden;
+  overflow-x: hidden;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;

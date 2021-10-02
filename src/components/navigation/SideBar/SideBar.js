@@ -8,12 +8,10 @@ const SideBar = ({ isOpen, toggle }) => {
       <S.Icon onClick={toggle}>
         <S.CloseIcon />
       </S.Icon>
-      <S.SideBarWrapper>
-        <S.SideBArMenu>
-          <S.SideBarNavLink to="/">Favorites</S.SideBarNavLink>
-          <S.SideBarNavLink to="/search">search</S.SideBarNavLink>
-        </S.SideBArMenu>
-      </S.SideBarWrapper>
+      <S.SideBArMenu>
+        <S.SideBarNavLink to="/">Favorites</S.SideBarNavLink>
+        <S.SideBarNavLink to="/search">search</S.SideBarNavLink>
+      </S.SideBArMenu>
     </S.SideBarContainer>
   );
 };

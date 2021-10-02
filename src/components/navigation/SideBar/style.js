@@ -31,10 +31,6 @@ export const Icon = styled.div`
   outline: none;
 `;
 
-export const SideBarWrapper = styled.div`
-  color: ${(props) => props.theme.text}; // ??
-`;
-
 export const SideBarNavLink = styled(Link)`
   color: ${(props) => props.theme.text};
   display: flex;

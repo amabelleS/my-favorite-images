@@ -43,39 +43,22 @@ describe('Search and add images to favorites', () => {
     cy.get('[data-testid="backBtn"]').should('be.visible').click();
 
     cy.log('***Verify the selected pictures in favoritese***');
+    cy.log(
+      '***Also whithin - sort of verification for the image size format method, to be re-writen with jest or fake API request***'
+    );
     cy.get('ul').as('favorites');
     cy.get('@favorites').within(($ul) => {
-      // cy.get('li').first().trigger('mouseover').should('be.visible');
       cy.get('[data-testid*="catch-image"]')
         .first()
         .should('be.visible')
         .trigger('mouseover')
         .should('contain.text', '5.5m');
       // cy.get('[data-testid="catch-size-5533914-5.5m"]').should('be.visible');
-      cy.get('li').eq(1).trigger('mouseover').should('be.visible');
+      cy.get('li')
+        .eq(1)
+        .trigger('mouseover')
+        .should('be.visible')
+        .should('contain.text', '5.1m');
     });
-
-    // it('Navigate back to home page', () => {
-    //   cy.get('[data-testid="backBtn"]').should('be.visible').click();
-    // });
-
-    // it('Verify the selected pictures in favorites', () => {
-    //   cy.get('ul').as('favorites');
-    //   cy.get('@favorites').within(($ul) => {
-    //     // cy.get('li').first().trigger('mouseover').should('be.visible');
-    //     cy.get('[data-testid*="catch-image"]')
-    //       .first()
-    //       .should('be.visible')
-    //       .trigger('mouseover')
-    //       .should('contain.text', '5.5m');
-    //     // cy.get('[data-testid="catch-size-5533914-5.5m"]').should('be.visible');
-    //     cy.get('li').eq(1).trigger('mouseover').should('be.visible');
-
-    //     // can't reach react selectors.. tryied in differnt ways:( I need to re-write the code so that the image component wont be a styled component
-    //     //   cy.react('*', { image: { id: '336672' } }).should(
-    //     //     'have.image.id',
-    //     //     '336672'
-    //     //   );
-    //   });
   });
 });
