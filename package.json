@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "cypress": "^8.5.0",
+    "cypress-react-selector": "^2.3.11",
     "eslint-plugin-cypress": "^2.12.1"
   }
 }

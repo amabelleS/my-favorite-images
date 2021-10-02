@@ -15,8 +15,16 @@ const Home = () => {
       <S.Content>
         <S.Title>My Favorite Images</S.Title>
         <S.List>
-          {favorites.map((image) => {
-            return <Image key={image.id} {...image} image={image} fav />;
+          {favorites.map((image, index) => {
+            return (
+              <Image
+                key={image.id}
+                {...image}
+                image={image}
+                fav
+                data-testid={`img-${index}`}
+              />
+            );
           })}
           <S.NavigationBox onClick={() => history.push('./search')}>
             <S.NavigationBoxText>Add Image</S.NavigationBoxText>

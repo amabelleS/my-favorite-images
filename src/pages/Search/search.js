@@ -6,6 +6,9 @@ import Image from '../../components/Image';
 import Spinner from '../../components/UIElements/Spinner';
 import { Modal } from '../../components/UIElements/Modal/Modal';
 
+// import axios from 'axios';
+// import { paginate } from '../../utils';
+
 import * as S from './style';
 
 const Search = () => {
@@ -19,6 +22,65 @@ const Search = () => {
   let history = useHistory();
   const [page, setPage] = useState(0);
   const [paginatedImages, setPaginatedImages] = useState([]);
+
+  // ----- sending dispatch down to avoid re-rendering and pass the tests, hopefully..
+  // async function fetchImages(searchTerm) {
+  //   dispatch({
+  //     type: 'set-loading',
+  //     payload: true,
+  //   });
+  //   dispatch({
+  //     type: 'set-error',
+  //     payload: { isError: null, msg: '' },
+  //   });
+
+  //   try {
+  //     const response = await axios.get(
+  //       `https://pixabay.com/api/?key=${
+  //         process.env.REACT_APP_PIXABAY_API_KEY
+  //       }&q=${searchTerm || ''}&per_page=120&image_type=photo`
+  //     );
+  //     console.log(
+  //       '🚀 ~ file: useImagesFetch.js ~ line 19 ~ fetchImages ~ response',
+  //       response
+  //     );
+  //     if (+response.data.totalHits > 0) {
+  //       dispatch({
+  //         type: 'set-images',
+  //         payload: paginate(response.data.hits),
+  //       });
+  //     } else {
+  //       dispatch({
+  //         type: 'set-error',
+  //         payload: {
+  //           isError: true,
+  //           msg: 'No Hits. Please try differnt key word for your search, or check your spelling',
+  //         },
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.log(
+  //       '🚀 ~ file: useImagesFetch.js ~ line 26 ~ fetchImages ~ error',
+  //       error
+  //     );
+  //     dispatch({
+  //       type: 'set-error',
+  //       payload: { isError: true, msg: '' },
+  //     });
+  //   }
+  //   dispatch({
+  //     type: 'set-loading',
+  //     payload: false,
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   fetchImages();
+  //   console.log(
+  //     '🚀 ~ file: useImagesReducerFetch.js ~ line 103 ~ fetchImages ~ state',
+  //     state
+  //   );
+  // }, []);
 
   useEffect(() => {
     if (isLoading) return;
@@ -99,7 +161,10 @@ const Search = () => {
             setShowModal={setShowModal}
             msg={error.msg}
           />
-          <S.BackIcon onClick={() => history.push('./')} />
+          <S.BackIcon
+            onClick={() => history.push('./')}
+            data-testid="backBtn"
+          />
           <S.SearchInputWrapper>
             <S.Button type="submit" onClick={handelSubmit}>
               <S.SearchIcon />
