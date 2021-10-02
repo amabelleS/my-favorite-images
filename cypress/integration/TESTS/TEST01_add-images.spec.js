@@ -1,5 +1,6 @@
 describe('Search and add images to favorites', () => {
-  it('Navigate to search', () => {
+  it('Navigate to search, add first two of search results, and verify them at home', () => {
+    cy.log('***Navigate to search***');
     const searchTerm = 'sunshine';
     cy.visit('/');
     cy.title().should('eq', 'My Favorite Images');
@@ -11,9 +12,8 @@ describe('Search and add images to favorites', () => {
     cy.get('[data-testid="search-btn"]').as('someButtonToNavigateOnNewPage');
     cy.get('@someButtonToNavigateOnNewPage').click();
     cy.wait(10000);
-    // });
 
-    // it('Mark first two pictures as favorite', () => {
+    cy.log('***Mark first two pictures as favorite***');
     cy.get('[data-cy=loading_spinner]', { timeout: 10000 }).should('not.exist');
     cy.wait(10000);
     cy.get('[data-cy="test-list"]').as('list');
@@ -38,13 +38,11 @@ describe('Search and add images to favorites', () => {
         .should('be.visible')
         .click();
     });
-  });
 
-  it('Navigate back to home page', () => {
+    cy.log('***Navigate back to home page***');
     cy.get('[data-testid="backBtn"]').should('be.visible').click();
-  });
 
-  it('Verify the selected pictures in favorites', () => {
+    cy.log('***Verify the selected pictures in favoritese***');
     cy.get('ul').as('favorites');
     cy.get('@favorites').within(($ul) => {
       // cy.get('li').first().trigger('mouseover').should('be.visible');
@@ -55,12 +53,29 @@ describe('Search and add images to favorites', () => {
         .should('contain.text', '5.5m');
       // cy.get('[data-testid="catch-size-5533914-5.5m"]').should('be.visible');
       cy.get('li').eq(1).trigger('mouseover').should('be.visible');
-
-      // can't reach react selectors.. tryied in differnt ways:( I need to re-write the code so that the image component wont be a styled component
-      //   cy.react('*', { image: { id: '336672' } }).should(
-      //     'have.image.id',
-      //     '336672'
-      //   );
     });
+
+    // it('Navigate back to home page', () => {
+    //   cy.get('[data-testid="backBtn"]').should('be.visible').click();
+    // });
+
+    // it('Verify the selected pictures in favorites', () => {
+    //   cy.get('ul').as('favorites');
+    //   cy.get('@favorites').within(($ul) => {
+    //     // cy.get('li').first().trigger('mouseover').should('be.visible');
+    //     cy.get('[data-testid*="catch-image"]')
+    //       .first()
+    //       .should('be.visible')
+    //       .trigger('mouseover')
+    //       .should('contain.text', '5.5m');
+    //     // cy.get('[data-testid="catch-size-5533914-5.5m"]').should('be.visible');
+    //     cy.get('li').eq(1).trigger('mouseover').should('be.visible');
+
+    //     // can't reach react selectors.. tryied in differnt ways:( I need to re-write the code so that the image component wont be a styled component
+    //     //   cy.react('*', { image: { id: '336672' } }).should(
+    //     //     'have.image.id',
+    //     //     '336672'
+    //     //   );
+    //   });
   });
 });
