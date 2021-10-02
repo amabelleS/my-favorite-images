@@ -27,7 +27,7 @@ const Image = React.memo(
 
     return (
       <S.ContentImage
-        data-testid="catch-image"
+        data-testid={`catch-image-${id}`}
         img={webformatURL}
         onMouseEnter={() => handleMouseEnter(id)}
         onMouseLeave={handleMouseLeave}

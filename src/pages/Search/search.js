@@ -100,7 +100,11 @@ const Search = () => {
             data-testid="backBtn"
           />
           <S.SearchInputWrapper>
-            <S.Button type="submit" onClick={handelSubmit}>
+            <S.Button
+              type="submit"
+              onClick={handelSubmit}
+              data-testid="search-btn"
+            >
               <S.SearchIcon />
             </S.Button>
             <S.InputWrapper focused={searchTerm || focused}>
