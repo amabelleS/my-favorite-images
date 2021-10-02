@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { FaPlus } from 'react-icons/fa';
 import Context from '../../context/favorites/context';
 import { abbreviateNumber } from '../../utils';
 
@@ -9,7 +8,6 @@ const Image = React.memo(
   ({ webformatURL, id, user, imageSize, add, fav, image, index }) => {
     const {
       favoritesState,
-      // favoritesDispatch,
       handleMouseEnter,
       handleMouseLeave,
       addToFavorites,
@@ -29,7 +27,7 @@ const Image = React.memo(
 
     return (
       <S.ContentImage
-        // data-testid={``}
+        data-testid="catch-image"
         img={webformatURL}
         onMouseEnter={() => handleMouseEnter(id)}
         onMouseLeave={handleMouseLeave}
@@ -37,7 +35,13 @@ const Image = React.memo(
         {fav && id === hoveredImageId ? (
           <S.Info>
             <span>{user}</span>
-            <span>{abbreviateNumber(imageSize)}</span>
+            <span
+              data-testid={`catch-size-${imageSize}-${abbreviateNumber(
+                imageSize
+              )}`}
+            >
+              {abbreviateNumber(imageSize)}
+            </span>
             <S.HeartIconNoMargin onClick={handelClickedHeart} />
           </S.Info>
         ) : null}
@@ -45,14 +49,11 @@ const Image = React.memo(
           <S.HeartIcon onClick={handelClickedHeart} />
         ) : null}
         {add && id === hoveredImageId && !isImageInFavorites(id) ? (
-          <S.IconWrapper
+          <S.PlusIcon
             onClick={handelClickedPlus}
             data-testid={`plus-icon-${index}`}
-          >
-            <FaPlus />
-          </S.IconWrapper>
-        ) : // <S.PlusIcon onClick={handelClickedPlus} data-test-target="plus-icon" />
-        null}
+          />
+        ) : null}
       </S.ContentImage>
     );
   }

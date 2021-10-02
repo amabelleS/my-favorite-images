@@ -23,15 +23,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-Cypress.Commands.add('Navigate', () => {
-  cy.visit('http://localhost:3000/');
-  //   cy.waitForReact(1000, '#root'); // 1000 is the timeout in milliseconds, you can provide as per AUT
-  cy.title().should('eq', 'My Favorite Images');
-  cy.get('.sc-dIUeWJ').click();
-  cy.url().should('include', 'search');
-  cy.get('.sc-giImIA').type('sunshine').should('have.value', 'sunshine');
-  cy.get('.sc-ezredP').click();
-  cy.waitForReact();
-  cy.wait(10000);
-});

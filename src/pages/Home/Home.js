@@ -27,7 +27,9 @@ const Home = () => {
             );
           })}
           <S.NavigationBox onClick={() => history.push('./search')}>
-            <S.NavigationBoxText>Add Image</S.NavigationBoxText>
+            <S.NavigationBoxText data-testid="add-image_btn">
+              Add Image
+            </S.NavigationBoxText>
           </S.NavigationBox>
         </S.List>
       </S.Content>

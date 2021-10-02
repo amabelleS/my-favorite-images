@@ -16,11 +16,7 @@ export const useImagesFetch = () => {
           process.env.REACT_APP_PIXABAY_API_KEY
         }&q=${searchTerm || ''}&per_page=120&image_type=photo`
       );
-      console.log(
-        '🚀 ~ file: useImagesFetch.js ~ line 19 ~ fetchImages ~ response',
-        response
-      );
-      // if (response.data.hits.length > 0) {
+
       if (+response.data.totalHits > 0) {
         setImages(paginate(response.data.hits));
       } else {
