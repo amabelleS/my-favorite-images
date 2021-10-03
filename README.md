@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm i`
+
+To install al the dependencies.
+
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -13,6 +17,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+### `npm run test:watch`
+
+For cypress tests.
+
+### `Get an API key`
+
+You need to replace, in useImagesReducerFetch hook, line 42, - process.env.REACT_APP_PIXABAY_API_KEY - with your one API key.
+You will be needed to sign up to [Pixabay](https://pixabay.com/) to get an API key
 
 ### `npm test`
 
