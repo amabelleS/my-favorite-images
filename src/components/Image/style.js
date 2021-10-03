@@ -23,6 +23,15 @@ export const PlusIcon = styled(FaPlus)`
     font-size: 2.3rem;
     cursor: pointer;
   }
+
+  @media (hover: hover) {
+    font-size: 2.3rem;
+    cursor: pointer;
+  }
+  @media (any-hover: hover) {
+    font-size: 2.3rem;
+    cursor: pointer;
+  }
 `;
 
 export const HeartIcon = styled(FaHeart)`
@@ -32,10 +41,15 @@ export const HeartIcon = styled(FaHeart)`
   margin: 2rem auto;
   width: 40%;
   color: red;
+  z-index: 777;
   &:hover {
     font-size: 2.3rem;
     cursor: pointer;
   }
+  /* &:hover {
+    font-size: 2.3rem;
+    cursor: pointer;
+  } */
 `;
 
 export const HeartIconNoMargin = styled(FaHeart)`
@@ -43,6 +57,7 @@ export const HeartIconNoMargin = styled(FaHeart)`
   font-size: 2rem;
   width: 40%;
   color: red;
+  z-index: 777;
   &:hover {
     cursor: pointer;
   }
