@@ -42,14 +42,19 @@ export const HeartIcon = styled(FaHeart)`
   width: 40%;
   color: red;
   z-index: 777;
+
   &:hover {
     font-size: 2.3rem;
     cursor: pointer;
   }
-  /* &:hover {
+  @media (hover: hover) {
     font-size: 2.3rem;
     cursor: pointer;
-  } */
+  }
+  @media (any-hover: hover) {
+    font-size: 2.3rem;
+    cursor: pointer;
+  }
 `;
 
 export const HeartIconNoMargin = styled(FaHeart)`

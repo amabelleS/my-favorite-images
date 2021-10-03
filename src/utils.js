@@ -34,10 +34,6 @@ export const paginate = (images) => {
     return images.slice(start, start + itemsPerPage);
   });
 
-  console.log(
-    '🚀 ~ file: utils.js ~ line 29 ~ paginate ~ newImages',
-    newImages
-  );
   return newImages;
 };
 
