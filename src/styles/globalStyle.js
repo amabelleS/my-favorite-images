@@ -36,13 +36,13 @@ export const lightTheme = {
   primary: '#84ffff',
   secondary: '#018786',
   darkLight: '#84ffff',
-  navActive: '#84ffff',
+  navActive: '#8f71ff',
 };
 
 export const darkTheme = {
   body: '#000000',
   text: '#84ffff',
-  primary: '#000000',
+  primary: '#84ffff',
   secondary: '#606470',
   darkLight: '#393e46',
   navActive: '#8f71ff',

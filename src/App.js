@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import { GlobalStyle, darkTheme } from './styles/globalStyle';
+import { GlobalStyle, darkTheme, lightTheme } from './styles/globalStyle';
 import { ThemeProvider } from 'styled-components';
 import { FavoritesProvider } from './context/favorites';
 
@@ -16,14 +16,25 @@ import { Home, Search } from './pages';
 
 import './App.css';
 
+const themes = {
+  light: lightTheme,
+  dark: darkTheme,
+};
+
 function App() {
+  const [theme, setTheme] = useState('light');
+
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
   return (
     <Router>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
         <FavoritesProvider>
           {/* <SideBar /> */}
-          <Navbar />
+          <Navbar theme={theme} themeToggler={themeToggler} />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/search" component={Search} />

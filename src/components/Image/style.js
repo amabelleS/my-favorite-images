@@ -10,6 +10,11 @@ export const ContentImage = styled.li`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
+
+  &:hover {
+    // animate
+    cursor: pointer;
+  }
 `;
 
 export const PlusIcon = styled(FaPlus)`

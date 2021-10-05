@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaSun, FaMoon } from 'react-icons/fa';
 
 export const Nav = styled.nav`
   background: ${(props) => props.theme.text};
@@ -51,5 +51,38 @@ export const NavMenu = styled.div`
 
   @media screen and (max-width: 768px) {
     display: none;
+  }
+`;
+
+export const Toggle = styled.button`
+  cursor: pointer;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  border: none;
+  margin-left: 1rem;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
+
+  &:hover {
+    background: #018786;
+  }
+  transition: all 0.5s ease;
+`;
+
+export const SunIcon = styled(FaSun)`
+  font-size: 1.4rem;
+
+  &:hover {
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+`;
+export const MoonIcon = styled(FaMoon)`
+  font-size: 1.4rem;
+
+  &:hover {
+    font-size: 1.6rem;
+    cursor: pointer;
   }
 `;

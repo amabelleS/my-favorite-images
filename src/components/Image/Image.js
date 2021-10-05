@@ -30,7 +30,9 @@ const Image = React.memo(
         data-testid={`catch-image-${id}`}
         img={webformatURL}
         onMouseEnter={() => handleMouseEnter(id)}
+        onTouchStart={() => handleMouseEnter(id)}
         onMouseLeave={handleMouseLeave}
+        onTouchCancel={handleMouseLeave}
       >
         {fav && id === hoveredImageId ? (
           <S.Info>

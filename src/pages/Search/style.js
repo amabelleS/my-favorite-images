@@ -35,6 +35,7 @@ export const Content = styled.div`
 
 export const Input = styled.input`
   background: transparent;
+  color: ${(props) => props.theme.body};
   position: relative;
   border: none;
   height: 2rem;
