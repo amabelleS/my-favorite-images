@@ -13,10 +13,19 @@ export const Nav = styled.nav`
   z-index: 10;
   font-weight: bold;
   font-size: 1.5rem;
+
+  /* @media screen and (max-width: 678px) {
+    justify-content: stretch;
+  } */
 `;
 
 export const NavBarHeader = styled.div`
   padding-left: 1rem;
+`;
+
+export const headerAndTheme = styled.div`
+  display: flex;
+  justify-content: stretch;
 `;
 
 export const NavLink = styled(Link)`
@@ -63,6 +72,7 @@ export const Toggle = styled.button`
   margin-left: 1rem;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.text};
+  margin-left: 1rem;
 
   &:hover {
     background: #018786;
