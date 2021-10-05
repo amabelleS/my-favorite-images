@@ -23,6 +23,7 @@ export const PlusIcon = styled(FaPlus)`
   font-size: 2rem;
   margin: 2rem auto;
   width: 40%;
+  color: ${(props) => props.theme.primary};
   z-index: 777;
   &:hover {
     font-size: 2.3rem;
