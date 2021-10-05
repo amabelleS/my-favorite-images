@@ -10,6 +10,8 @@ export const SideBarContainer = styled.aside`
   height: 100%;
   width: 100%;
   background: ${(props) => props.theme.body};
+  /* color: ${(props) => props.theme.text}; */
+  /* color: red; */
   display: grid;
   align-items: center;
   transition: 0.3s ease-in-out;
@@ -41,7 +43,6 @@ export const SideBarNavLink = styled(Link)`
   list-style: none;
   cursor: pointer;
   transition: 0.2s ease-in-out;
-  color: #fff;
 
   &:hover {
     color: ${(props) => props.theme.text};
