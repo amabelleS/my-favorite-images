@@ -10,8 +10,6 @@ export const SideBarContainer = styled.aside`
   height: 100%;
   width: 100%;
   background: ${(props) => props.theme.body};
-  /* color: ${(props) => props.theme.text}; */
-  /* color: red; */
   display: grid;
   align-items: center;
   transition: 0.3s ease-in-out;

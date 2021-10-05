@@ -15,11 +15,13 @@ export const Background = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
-  width: 800px;
-  height: 500px;
+  width: 88vw;
+  height: 60vh;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #000;
+  /* background: #fff; */
+  background: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.body};
+  /* color: #000; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
@@ -40,17 +42,26 @@ export const ModalContent = styled.div`
   justify-content: center;
   align-items: center;
   line-height: 1.8;
-  color: #141414;
+  /* color: #141414; */
+  color: ${(props) => props.theme.body};
 
   p {
-    margin-bottom: 1rem;
+    padding: 1rem;
   }
 
   button {
     padding: 10px 24px;
-    background: #141414;
-    color: #fff;
+    /* background: #141414; */
+    /* color: #fff; */
+    background: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.text};
     border: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    h1 {
+      padding-left: 0.5rem;
+    }
   }
 `;
 
